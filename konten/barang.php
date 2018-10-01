@@ -41,7 +41,7 @@ if ($_GET['hapus'] == 'ya') {
                   $jumlah = mysql_num_rows($grab);
 
                   if ($jumlah > 0) {
-		  $no = 1;
+		  $no = 1; 
                   while ($b = mysql_fetch_array($grab)) {
                   ?>
                     <tr>
