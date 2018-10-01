@@ -73,11 +73,11 @@
                           <li class="nav-item">
                               <a class="nav-link text-twice" href="?menu=login">MASUK</a>
                           </li>
-                    </ul>
+                        </ul>
               <?php
               } //tutup else ?>
-          </div>
-      </ul>
+                    </div>
+                  </ul>
 
 </nav>
 

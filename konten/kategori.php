@@ -10,7 +10,7 @@ if ($_GET['hapus'] == 'ya') {
 <section>
     <div class="container-fluid justify-content-center">
       <div class="row">
-        <div class="col-8 text-center">
+        <div class="col-lg-8 text-center">
           <div class="card">
             <div class="card-header bg-primary">
               <h1 class="h4 mb-3 font-weight-normal text-light">Daftar Kategori Barang</h1>
@@ -35,12 +35,13 @@ if ($_GET['hapus'] == 'ya') {
                     $jumlah = mysql_num_rows($ambil);
 
                     if ($jumlah > 0) {
+                      $no = 1;
                       while ($b = mysql_fetch_array($ambil)) {
                     ?>
                     <tr>
-                      <td><?php print ($b['id_kategori']) ?></td>
-                      <td><?php print ($b['jenis_barang']) ?></td>
-                      <td><?php print ($b['kat_AddedBy']) ?></td>
+                      <td><?php print ($no); ?></td>
+                      <td><?php print ($b['jenis_barang']); ?></td>
+                      <td><?php print ($b['kat_AddedBy']); ?></td>
                       <td>
                         <a href="?menu=edit-kategori&id_kategori=<?php print $b['id_kategori']?>" class="btn btn-sm btn-warning">EDIT</a>
                         <a href="" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#id_kategori_<?php print $b['id_kategori']?>">HAPUS</a>
@@ -66,7 +67,7 @@ if ($_GET['hapus'] == 'ya') {
                       </td>
                     </tr>
             <?php
-                  }
+                $no++;  }
                 } else {
             ?>
                   <tr>
@@ -95,7 +96,7 @@ if (isset($_POST['tambah'])) {
 }
  ?>
 
-        <div class="col-4">
+        <div class="col-lg-4">
           <div class="card">
             <div class="card-header bg-primary">
               <h1 class="h4 mb-3 font-weight-normal text-light">Tambah Kategori Barang</h1>

@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
   <section>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-4 text-center">
+        <div class="col-lg-4 text-center">
           <div class="card">
             <div class="card-header bg-primary">
               <h1 class="h3 mb-3 font-weight-normal text-light">Silakan masuk.</h1>

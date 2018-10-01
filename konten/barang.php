@@ -41,17 +41,18 @@ if ($_GET['hapus'] == 'ya') {
                   $jumlah = mysql_num_rows($grab);
 
                   if ($jumlah > 0) {
+		  $no = 1;
                   while ($b = mysql_fetch_array($grab)) {
                   ?>
                     <tr>
-                      <td><?php print($b['id_barang']) ?></td>
-                      <td><?php print($b['nama_barang']) ?></td>
-                      <td><?php print($b['jenis_barang']) ?></td>
-                      <td><?php print($b['barcode']) ?></td>
-                      <td><?php print($b['kuantitas']) ?></td>
-                      <td class="text-left">Rp. <?php print($b['hargabeli_brg']) ?></td>
-                      <td><?php print date('d F Y' , strtotime($b['tgl_beli'])) ?></td>
-                      <td><?php print($b['keterangan']) ?></td>
+                      <td><?php print($no); ?></td>
+                      <td><?php print($b['nama_barang']); ?></td>
+                      <td><?php print($b['jenis_barang']); ?></td>
+                      <td><?php print($b['barcode']); ?></td>
+                      <td><?php print($b['kuantitas']); ?></td>
+                      <td class="text-left">Rp. <?php print number_format($b['hargabeli_brg'], 0,".", "."); ?></td>
+                      <td><?php print date('d F Y' , strtotime($b['tgl_beli'])); ?></td>
+                      <td><?php print($b['keterangan']); ?></td>
                       <td>
                         <a href="?menu=edit-barang&id_barang=<?php print $b['id_barang']?>" class="btn btn-sm btn-warning">EDIT</a>
                       </td>
@@ -79,7 +80,7 @@ if ($_GET['hapus'] == 'ya') {
                       </td>
                     </tr>
                   <?php
-                } // end of while
+                $no++; } // end of while
               } else { ?>
                       <tr>
                         <td colspan="9" class="alert alert-warning">Data masih kosong.</td>

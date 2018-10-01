@@ -23,16 +23,18 @@ $q= mysql_query("SELECT * FROM barang
    </thead>
 
    <tbody>
-     <?php while ($r = mysql_fetch_array($q)) { ?>
-       <td><?php print($r['id_barang']) ?></td>
-       <td><?php print($r['nama_barang']) ?></td>
-       <td><?php print($r['jenis_barang']) ?></td>
-       <td><?php print($r['barcode']) ?></td>
-       <td><?php print($r['kuantitas']) ?></td>
-       <td class="text-left">Rp. <?php print($r['hargabeli_brg']) ?></td>
-       <td><?php print($r['brg_AddedBy']) ?></td>
-       <td><?php print date('d F Y' , strtotime($r['tgl_beli'])) ?></td>
-       <td><?php print($r['keterangan']) ?></td>
+     <?php
+     $i = 1;
+     while ($r = mysql_fetch_array($q)) { ?>
+       <td><?php print $i; ?></td>
+       <td><?php print($r['nama_barang']); ?></td>
+       <td><?php print($r['jenis_barang']); ?></td>
+       <td><?php print($r['barcode']); ?></td>
+       <td><?php print($r['kuantitas']); ?></td>
+       <td class="text-left">Rp. <?php print number_format($r['hargabeli_brg'], 0, ".", "."); ?></td>
+       <td><?php print($r['brg_AddedBy']); ?></td>
+       <td><?php print date('d F Y' , strtotime($r['tgl_beli'])); ?></td>
+       <td><?php print($r['keterangan']); ?></td>
    </tbody>
- <?php } ?>
+ <?php $i++; } ?>
  </table>
